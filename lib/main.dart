@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:yours_news/core/router.dart';
 import 'package:yours_news/features/splash/screen/splash_screen.dart';
 
 void main() {
