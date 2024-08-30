@@ -340,7 +340,7 @@ class SearchScreen extends HookConsumerWidget {
               ),
               const SizedBox(height: 8),
               Wrap(
-                spacing: 16.0,
+                spacing: 12.0,
                 children: categories
                     .map((category) => _buildChip(context, ref, category))
                     .toList(),
@@ -356,7 +356,7 @@ class SearchScreen extends HookConsumerWidget {
               ),
               const SizedBox(height: 8),
               Wrap(
-                spacing: 16.0,
+                spacing: 12.0,
                 children: locations
                     .map((location) => _buildChip(context, ref, location))
                     .toList(),
@@ -373,8 +373,8 @@ class SearchScreen extends HookConsumerWidget {
                       ref.read(selectedCategoriesProvider.notifier).state = [];
                       ref.read(selectedLocationsProvider.notifier).state = [];
                     },
-                    width: 190,
-                    height: 55,
+                    width: 150,
+                    height: 50,
                     tcolor: AppColor.color1A1A1A,
                     bgcolor: AppColor.color121314.withOpacity(0.08),
                   ),
@@ -383,8 +383,8 @@ class SearchScreen extends HookConsumerWidget {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    width: 190,
-                    height: 55,
+                    width: 150,
+                    height: 50,
                     tcolor: AppColor.white,
                     bgcolor: AppColor.color121314,
                   ),
