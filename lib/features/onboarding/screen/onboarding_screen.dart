@@ -1,6 +1,5 @@
 import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:yours_news/features/auth/screen/signin_screen.dart';
 import 'package:yours_news/shared/constant/colors.dart';
 import 'package:yours_news/shared/widget/custom_button.dart';
@@ -54,14 +53,14 @@ class _OnBoardingState extends State<OnBoarding> {
           ),
           const Padding(
             padding: EdgeInsets.only(
-              top: 70,
+              top: 50,
             ),
             child: Column(
               children: [
                 Text(
                   "First to know",
                   style: TextStyle(
-                    fontSize: 27,
+                    fontSize: 24,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
@@ -71,7 +70,7 @@ class _OnBoardingState extends State<OnBoarding> {
                 Text("All news in one place, be\n the first to know last news",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 17,
                       color: Colors.grey,
                     )),
               ],

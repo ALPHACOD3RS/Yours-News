@@ -10,6 +10,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.leadingPadding = 0.0,
     this.backgroundColor = AppColor.white,
     this.contentColor = AppColor.contentColor,
+    this.automaticallyImplyLeading = false,
   });
 
   final List<Widget>? actions;
@@ -18,20 +19,21 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double leadingPadding;
   final Color backgroundColor;
   final Color contentColor;
+  final bool automaticallyImplyLeading;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      scrolledUnderElevation: 0.0,
+      automaticallyImplyLeading: automaticallyImplyLeading,
       leading: leading != null
-          ? Row(
-              children: [
-                SizedBox(width: leadingPadding),
-                leading!,
-              ],
+          ? Padding(
+              padding: EdgeInsets.only(left: leadingPadding),
+              child: leading,
             )
           : null,
-      leadingWidth: leading != null ? 100 : null,
       backgroundColor: backgroundColor,
+      elevation: 0,
       iconTheme: IconThemeData(
         color: contentColor,
       ),
@@ -42,9 +44,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           fontWeight: FontWeight.w700,
         ),
       ),
-      actions: [
-        ...(actions ?? []),
-      ],
+      actions: actions,
     );
   }
 

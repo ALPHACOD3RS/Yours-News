@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:bottom_navy_bar/bottom_navy_bar.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:iconsax_plus/iconsax_plus.dart';
+import 'package:yours_news/features/bookmark/screen/bookmark_screen.dart';
+import 'package:yours_news/features/discover/screen/discover_screen.dart';
 import 'package:yours_news/features/home/screen/home_screen.dart';
+import 'package:yours_news/features/profile/screen/profile_screen.dart';
 import 'package:yours_news/shared/constant/colors.dart';
 
 final bottomNavIndexProvider = StateProvider<int>((ref) => 0);
 
 class BottomNavigation extends HookConsumerWidget {
-  final PageController _pageController = PageController();
+  const BottomNavigation({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final selectedIndex = ref.watch(bottomNavIndexProvider);
+    final PageController _pageController =
+        PageController(initialPage: selectedIndex);
 
     return Scaffold(
       body: PageView(
@@ -20,82 +25,55 @@ class BottomNavigation extends HookConsumerWidget {
         onPageChanged: (index) {
           ref.read(bottomNavIndexProvider.notifier).state = index;
         },
-        children: [
+        children: const [
           HomeScreen(),
-          // ProfileScreen(),
-          // NotificationsScreen(),
-          // SettingsScreen(),
+          DiscoverScreen(),
+          BookmarkScreen(),
+          ProfileScreen(),
         ],
       ),
-      bottomNavigationBar: BottomNavyBar(
-        backgroundColor: Colors.white,
-        shadowColor: Colors.white,
-        blurRadius: 0,
-        shadowOffset: Offset(0, 0),
-        spreadRadius: 0,
+      bottomNavigationBar: GNav(
         selectedIndex: selectedIndex,
-        showElevation: true,
-        onItemSelected: (index) {
+        onTabChange: (index) {
           ref.read(bottomNavIndexProvider.notifier).state = index;
           _pageController.animateToPage(
             index,
-            duration: Duration(milliseconds: 300),
+            duration: const Duration(milliseconds: 300),
             curve: Curves.ease,
           );
         },
-        items: [
-          BottomNavyBarItem(
-              icon: const Icon(
-                IconsaxPlusBold.home_2,
-                color: AppColor.color666666,
-              ),
-              title: const Text(
-                'Home',
-                style: TextStyle(color: AppColor.color666666),
-              ),
-              activeColor: const Color.fromARGB(0, 255, 255, 255),
-              inactiveColor: AppColor.color666666
+        color: Colors.grey,
+        activeColor: Colors.black, 
 
-              // activeColor: Colors.red,
-              ),
-          BottomNavyBarItem(
-              icon: const Icon(
-                IconsaxPlusBold.discover,
-                color: AppColor.color666666,
-              ),
-              title: const Text(
-                'Discover',
-                style: TextStyle(color: AppColor.color666666),
-              ),
-              activeColor: const Color.fromARGB(0, 255, 255, 255),
-              inactiveColor: AppColor.color666666
-              // activeColor: Colors.purpleAccent,
-              ),
-          BottomNavyBarItem(
-              icon: const Icon(
-                IconsaxPlusBold.archive_1,
-                color: AppColor.color666666,
-              ),
-              title: const Text(
-                'Messages',
-                style: TextStyle(color: AppColor.color666666),
-              ),
-              activeColor: const Color.fromARGB(0, 255, 255, 255),
-              inactiveColor: AppColor.color666666
-              // activeColor: Colors.pink,
-              ),
-          BottomNavyBarItem(
-              icon: const Icon(
-                IconsaxPlusBold.profile,
-                color: AppColor.color666666,
-              ),
-              title: const Text('Settings',
-                  style: TextStyle(color: AppColor.color666666)),
-              activeColor: const Color.fromARGB(0, 255, 255, 255),
-              inactiveColor: AppColor.color666666
-
-              // activeColor: Colors.blue,
-              ),
+        padding: const EdgeInsets.all(18),
+        gap: 8,
+        backgroundColor: Colors.white,
+        tabs: [
+          GButton(
+            icon: IconsaxPlusBold.home_2,
+            text: 'Home',
+            iconColor: AppColor.color666666,
+            onPressed:
+                () {},
+          ),
+          GButton(
+            icon: IconsaxPlusBold.discover,
+            text: 'Discover',
+            iconColor: AppColor.color666666,
+            onPressed: () {},
+          ),
+          GButton(
+            icon: IconsaxPlusBold.archive_1,
+            text: 'Bookmarks',
+            iconColor: AppColor.color666666,
+            onPressed: () {},
+          ),
+          GButton(
+            icon: IconsaxPlusBold.profile,
+            text: 'Profile',
+            iconColor: AppColor.color666666,
+            onPressed: () {},
+          ),
         ],
       ),
     );
