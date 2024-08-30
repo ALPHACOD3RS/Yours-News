@@ -20,7 +20,7 @@ void main() {
   test('login success', () async {
     when(mockDio.post(any, data: anyNamed('data')))
         .thenAnswer((_) async => Response(
-              data: {'token': 'fake_token'},
+              data: {'token': 'token'},
               statusCode: 200,
               requestOptions: RequestOptions(path: ''),
             ));
@@ -34,13 +34,13 @@ void main() {
   });
 
   test('login failure', () async {
-    when(mockDio.post(any, data: anyNamed('data')))
-        .thenThrow(DioError(
+    when(mockDio.post(any, data: anyNamed('data'))).thenThrow(DioError(
       requestOptions: RequestOptions(path: ''),
       error: 'Unauthorized',
     ));
 
-    expect(() async => await authRepository.login('email@email.com', 'password'),
+    expect(
+        () async => await authRepository.login('email@email.com', 'password'),
         throwsException);
   });
 }
