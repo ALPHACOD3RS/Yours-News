@@ -6,23 +6,22 @@ import 'package:yours_news/features/home/model/card_item.dart';
 final cardListProvider = StateProvider<List<CardItem>>((ref) {
   return [
     CardItem(
-      imageUrl: 'https://via.placeholder.com/150',
+      imageUrl: 'assets/png/h1.jpg',
       title: 'Global Summit on Climate Change: Historic Agreement Reached',
-      logoUrl: 'https://via.placeholder.com/24',
+      logoUrl: 'assets/png/bbc.png',
       text: 'BBC News',
       icon: IconsaxPlusBold.verify,
-      date: '2024-08-27',
+      date: 'Jun 9, 2023',
       tag: 'Enviroment',
     ),
     CardItem(
-      imageUrl: 'https://via.placeholder.com/150',
-      title: 'Card Title 2',
-      logoUrl: 'https://via.placeholder.com/24',
-      text: 'Some text',
+      imageUrl: 'assets/png/h2.jpg',
+      title: 'Tech Giant Unveils Revolutionary AI-powered Device',
+      logoUrl: 'assets/png/times.png',
+      text: 'The NYT',
       icon: IconsaxPlusBold.verify,
-      date: '2024-08-27',
-      tag: 'Tag 2',
+      date: 'Jun 9, 2023',
+      tag: 'Technology',
     ),
-    // Add more CardItem instances as needed
-  ];
+];
 });
