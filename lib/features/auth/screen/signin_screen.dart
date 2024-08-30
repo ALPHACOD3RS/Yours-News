@@ -1,19 +1,17 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:iconsax_plus/iconsax_plus.dart';
-import 'package:yours_news/features/auth/widget/or_divider.dart';
-import 'package:yours_news/features/auth/widget/social_signin_button.dart';
-import 'package:yours_news/features/home/screen/home_screen.dart';
-import 'package:yours_news/shared/constant/colors.dart';
-import 'package:yours_news/shared/constant/validotrs.dart';
-import 'package:yours_news/shared/widget/custom_appbar.dart';
-import 'package:yours_news/shared/widget/custom_button.dart';
 import 'package:yours_news/shared/widget/custom_navbar.dart';
-import 'package:yours_news/shared/widget/custom_textbox.dart';
+import '../provider/auth_provider.dart';
+import '../../../shared/constant/colors.dart';
+import '../../../shared/constant/validotrs.dart';
+import '../../../shared/widget/custom_appbar.dart';
+import '../../../shared/widget/custom_button.dart';
+import '../../../shared/widget/custom_textbox.dart';
+import '../widget/or_divider.dart';
+import '../widget/social_signin_button.dart';
 
 final loginFormKey = GlobalKey<FormState>();
 
@@ -24,6 +22,31 @@ class SignIn extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final passwordController = useTextEditingController();
     final emailController = useTextEditingController();
+
+    final authState = ref.watch(authProvider);
+    final authNotifier = ref.read(authProvider.notifier);
+
+    void onSignInPressed() async {
+      if (loginFormKey.currentState!.validate()) {
+        await authNotifier.login(
+          emailController.text,
+          passwordController.text,
+        );
+
+        if (authState.isAuthenticated) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+              builder: (context) => BottomNavigation(),
+            ),
+          );
+        } else {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Login failed')),
+          );
+        }
+      }
+    }
 
     return Scaffold(
       appBar: const CustomAppBar(
@@ -87,15 +110,8 @@ class SignIn extends HookConsumerWidget {
                       const SizedBox(height: 24.0),
                       CustomButton(
                         text: "Sign in",
-                        onPressed: () {
-                          if (loginFormKey.currentState!.validate()) {
-                            // ref.read(authProvider).login(
-                            //   email: emailController.text,
-                            //   password: passwordController.text,
-                            // );
-                            // GoRouter.of(context).go('/home');
-                          }
-                        },
+                        isLoading: authState.isLoading,
+                        onPressed: onSignInPressed,
                       ),
                       const SizedBox(height: 24.0),
                       const ORDivider(),
