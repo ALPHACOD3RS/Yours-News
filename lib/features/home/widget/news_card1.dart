@@ -79,6 +79,7 @@ class NewsCard1 extends StatelessWidget {
                             const SizedBox(width: 8.0),
                             Icon(
                               item.icon,
+                              size: 15,
                               color: AppColor.color2ABAFF,
                             ),
                           ],

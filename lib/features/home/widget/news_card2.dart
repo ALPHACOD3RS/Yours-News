@@ -45,7 +45,7 @@ class NewsCard2 extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      // crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           item.text,
@@ -55,8 +55,11 @@ class NewsCard2 extends StatelessWidget {
                         const SizedBox(
                           width: 5,
                         ),
-                        Icon(IconsaxPlusBold.verify,
-                            color: AppColor.color2ABAFF),
+                        Icon(
+                          IconsaxPlusBold.verify,
+                          size: 15,
+                          color: AppColor.color2ABAFF,
+                        ),
                       ],
                     ),
                     Text(

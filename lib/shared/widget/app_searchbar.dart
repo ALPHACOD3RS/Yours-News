@@ -151,7 +151,7 @@ class SearchScreen extends HookConsumerWidget {
                 Text(
                   'News',
                   style: TextStyle(
-                    fontSize: 24,
+                    fontSize: 22,
                     fontWeight: FontWeight.w500,
                     color: AppColor.color121314,
                   ),
@@ -163,7 +163,7 @@ class SearchScreen extends HookConsumerWidget {
                   "Publishers",
                   style: TextStyle(
                     fontWeight: FontWeight.w500,
-                    fontSize: 20,
+                    fontSize: 18,
                     color: AppColor.color999999,
                   ),
                 )
@@ -441,13 +441,15 @@ class SearchScreen extends HookConsumerWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(title,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 18,
-                          color: AppColor.color1A1A1A,
-                        )),
-                    const SizedBox(height: 4),
+                    Text(
+                      title,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 16,
+                        color: AppColor.color1A1A1A,
+                      ),
+                    ),
+                    const SizedBox(height: 15),
                     Row(
                       children: [
                         SizedBox(
@@ -460,9 +462,9 @@ class SearchScreen extends HookConsumerWidget {
                             child: Image.asset(logoUrl),
                           ),
                         ),
-                        const SizedBox(
-                          width: 10,
-                        ),
+                        const SizedBox(width: 2),
+                        // Expanded(
+                        //   child:
                         Text(
                           source,
                           style: const TextStyle(
@@ -470,17 +472,15 @@ class SearchScreen extends HookConsumerWidget {
                             fontSize: 15,
                             color: AppColor.color999999,
                           ),
+                          // ),
                         ),
-                        const SizedBox(
-                          width: 5,
-                        ),
+                        const SizedBox(width: 5),
                         const Icon(
                           IconsaxPlusBold.verify,
+                          size: 15,
                           color: AppColor.color2ABAFF,
                         ),
-                        const SizedBox(
-                          width: 10,
-                        ),
+                        const SizedBox(width: 10),
                         Container(
                           width: 8.0,
                           height: 8.0,
@@ -489,15 +489,18 @@ class SearchScreen extends HookConsumerWidget {
                             shape: BoxShape.circle,
                           ),
                         ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        Text(
-                          date,
-                          style: const TextStyle(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 15,
-                            color: AppColor.color999999,
+                        const SizedBox(width: 10),
+                        Flexible(
+                          child: Text(
+                            date,
+                            overflow: TextOverflow
+                                .ellipsis, // Use ellipsis for better overflow handling
+                            softWrap: false, // Disable soft wrapping
+                            style: const TextStyle(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 15,
+                              color: AppColor.color999999,
+                            ),
                           ),
                         ),
                       ],
