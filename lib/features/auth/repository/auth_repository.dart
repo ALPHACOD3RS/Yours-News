@@ -1,6 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+
+// this repository will be used to make the login request
+// it will take email and password as input and return a token if the login is successful
+// if the login is not successful it will throw an exception
+
 class AuthRepository {
   final Dio _dio;
 

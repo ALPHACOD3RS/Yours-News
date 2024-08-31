@@ -6,6 +6,8 @@ import 'package:yours_news/shared/constant/colors.dart';
 import 'package:yours_news/shared/widget/outtlined_button.dart';
 import 'package:yours_news/shared/widget/secondary_button.dart';
 
+
+
 class NewsCard2 extends StatelessWidget {
   final CardItem item;
   const NewsCard2({super.key, required this.item});

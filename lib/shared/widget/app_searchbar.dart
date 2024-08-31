@@ -40,6 +40,10 @@ const List<String> locations = [
   'South america',
 ];
 
+
+// this is the custom search box widget that we will use in the search screen
+
+
 class CustomSearchBox extends StatelessWidget {
   const CustomSearchBox({super.key, required this.hintText});
 

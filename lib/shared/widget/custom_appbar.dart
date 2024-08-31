@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:yours_news/shared/constant/colors.dart';
 
+
+
+// this is a custom appbar that we will use in our app
+// we will use this appbar in all the screens of our app
+// this appbar will have a title and a back button
+// we will also use this appbar in the screens where we don't need a back button
+// in that case we will pass automaticallyImplyLeading as false
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
     super.key,

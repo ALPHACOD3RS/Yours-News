@@ -1,3 +1,4 @@
+// validator function for validating email input text 
 class AppValidator {
   static String? email(String? text) {
     final valid = RegExp(
@@ -9,9 +10,11 @@ class AppValidator {
     return null;
   }
 
+  
 
+  // validator function for validating fullname and email or phone input i alaways 
+  // use this class to validate input texts thats why i included this functions also
 
- 
   static String? fullName(String? text) {
     if (text == null || text.isEmpty) {
       return "Please enter your full name";
@@ -32,7 +35,7 @@ class AppValidator {
   static String? emailOrPhone(String? text) {
     final validEmail = email(text);
 
-    if (validEmail != null ) {
+    if (validEmail != null) {
       return "Please enter a valid email address or phone number!";
     }
 

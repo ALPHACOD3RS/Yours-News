@@ -64,7 +64,7 @@ class _OnBoardingState extends State<OnBoarding> {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                const SizedBox(
+                 SizedBox(
                   height: 10,
                 ),
                 Text("All news in one place, be\n the first to know last news",

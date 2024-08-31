@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:yours_news/features/home/model/card_item.dart';
 import 'package:yours_news/shared/constant/colors.dart';
 
+
+// this class is used to create a card that will be used to display news
+// this card will have an image, title, tag, logo, text, icon, and date
+// this card will be used in the home screen to display news
+
 class NewsCard1 extends StatelessWidget {
   final CardItem item;
 

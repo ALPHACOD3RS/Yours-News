@@ -12,6 +12,7 @@ class SplashScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // check if the auth token is available or not
     _checkAuthToken(context);
 
     return Scaffold(
@@ -28,9 +29,12 @@ class SplashScreen extends ConsumerWidget {
 
   Future<void> _checkAuthToken(BuildContext context) async {
     final prefs = await SharedPreferences.getInstance();
+    // get the auth token from shared preferences
     final authToken = prefs.getString('auth_token');
+    
 
     Timer(const Duration(seconds: 3), () {
+      // check if the auth token is null or not
       if (authToken != null) {
         Navigator.pushReplacement(
           context,
