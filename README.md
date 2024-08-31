@@ -1,6 +1,22 @@
 
 # Yours News
 
+
+<div style="display: flex; padding: 10px;">
+  <img src="images/1.jpg" width="128" style="margin-right: 10px;"/>
+  <img src="images/2.jpg" width="128" style="margin-right: 10px;"/>
+  <img src="images/3.jpg" width="128" style="margin-right: 10px;"/>
+  <img src="images/4.jpg" width="128" style="margin-right: 10px;"/>
+  <img src="images/5.jpg" width="128"/>
+</div>
+<div style="display: flex; padding: 10px;">
+  <img src="images/8.jpg" width="128" style="margin-right: 10px;"/>
+  <img src="images/9.jpg" width="128" style="margin-right: 10px;"/>
+  <img src="images/10.jpg" width="128" style="margin-right: 10px;"/>
+  <img src="images/6.jpg" width="128" style="margin-right: 10px;"/>
+  <img src="images/7.jpg" width="128"/>
+</div>
+
 #### Project Structure
 
 The project is organized into distinct feature modules, making it easy to navigate and scale as the app grows. 
